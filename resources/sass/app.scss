@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+// @import url('https://fonts.googleapis.com/css?family=Nunito');
 // Variables
 @import 'variables';
 // Bootstrap
@@ -9,6 +9,11 @@
 @import 'swiper/css/pagination';
 
 /**     style1.css      **/
+
+// DA SAČUVA RAZMAKE
+#notices {
+    white-space: pre-wrap;
+}
 
 body {
     font-family: "Open Sans", sans-serif;
@@ -57,6 +62,10 @@ h6 {
 .back-to-top:hover {
     background: #e65d5f;
     color: #fff;
+}
+
+.active {
+    color: #e65d5f;
 }
 
 .back-to-top.active {
@@ -1235,6 +1244,7 @@ section {
     margin-bottom: 5px;
     font-size: 18px;
     color: #111111;
+    background-color: whitesmoke;
 }
 
 .team .member .member-info span {
@@ -1242,9 +1252,10 @@ section {
     font-size: 13px;
     font-weight: 400;
     color: #aaaaaa;
+    background-color: whitesmoke;
 }
 
-.team .member .member-info p {
+.member .member-info p {
     font-style: italic;
     font-size: 14px;
     line-height: 26px;

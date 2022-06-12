@@ -131,7 +131,7 @@
                         <div class="count-box">
                             <i class="bi bi-people"></i>
                             <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
-                                class="purecounter">15</span>
+                                class="purecounter">2</span>
                             <p>Ljudi zaduženih za ovaj projekt</p>
                         </div>
                     </div>

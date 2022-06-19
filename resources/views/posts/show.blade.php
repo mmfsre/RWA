@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_absolute_footer')
 
 @section('content')
     <section id="portfolio" class="portfolio">
@@ -6,6 +6,12 @@
 
             <div class="section-title">
                 <h2>{{ $material->name }}</h2>
+            </div>
+
+            <div class="col-lg-1 align-items-start justify-content-evenly mt-2 mb-2">
+                <a href="/materials">
+                    <button class="btn btn-back fw-bold">&#8617; Nazad</button>
+                </a>
             </div>
 
             <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
@@ -35,17 +41,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 portfolio-item filter-app">
-                    <h5 class="fw-bold">Predstavnik:</h5>
-                    <h6>Kennedy</h6>
-                </div>
             </div>
             <div class="container">
                 <div class="row text-start">
                     <h5>OBAVIJESTI</h5>
                 </div>
                 @if ($material->description != '')
-                    <div class="row text-start mt-4 p-3 bg-secondary text-white rounded fw-bold">
+                    <div class="row text-start mt-4 p-3 jumbo text-white rounded fw-bold fst-italic">
                         <p id="notices">{{ $material->description }}</p>
                     </div>
                     @if ($material->created_at != '')

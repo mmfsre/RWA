@@ -13,7 +13,7 @@ class Direction extends Model
 
     protected $primaryKey = 'id';
 
-    protected $guarded = [];
+    protected $fillable = ['name', 'school_year', 'faculty_id'];
 
     // Veza VIŠE-VIŠE  // Directions -> Users
     public function users()
@@ -25,6 +25,12 @@ class Direction extends Model
     public function material()
     {
         return $this->belongsTo(Material::class);
+    }
+
+    // Veza 1-1 // Directions -> Users // Za svakog predstavnika sa smjera
+    public function user()
+    {
+        return $this->hasOne(User::class);
     }
 
     // Veza 1-VIŠE // Directions -> Faculties

@@ -13,16 +13,17 @@
 
                             <div class="row mb-3">
                                 <label for="name"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Korisničko Ime') }}</label>
+                                    class="fw-bold col-md-4 col-form-label text-md-end">{{ __('Korisničko Ime') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                                        name="name" value="{{ old('name') }}" required autocomplete="name" autofocus
-                                        placeholder="korisnik">
+                                    <input id="name" type="text"
+                                        class="fst-italic form-control @error('name') is-invalid @enderror" name="name"
+                                        value="{{ old('name') }}" required autocomplete="name" autofocus
+                                        placeholder="Korisnik">
 
                                     @error('name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message = 'Pogrešan unos!' }}</strong>
+                                        <span class="invalid-feedback fst-italic fw-bold" role="alert">
+                                            <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
@@ -30,16 +31,17 @@
 
                             <div class="row mb-3">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Email Adresa') }}</label>
+                                    class="fw-bold col-md-4 col-form-label text-md-end">{{ __('Email Adresa') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                        name="email" value="{{ old('email') }}" required autocomplete="email"
+                                    <input id="email" type="email"
+                                        class="fst-italic form-control @error('email') is-invalid @enderror" name="email"
+                                        value="{{ old('email') }}" required autocomplete="email"
                                         placeholder="mail@example.com">
 
                                     @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message = 'Pogrešan unos!' }}</strong>
+                                        <span class="invalid-feedback fst-italic fw-bold" role="alert">
+                                            <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
@@ -47,16 +49,16 @@
 
                             <div class="row mb-3">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Lozinka') }}</label>
+                                    class="fw-bold col-md-4 col-form-label text-md-end">{{ __('Lozinka') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="new-password" placeholder="********">
+                                        class="fst-italic form-control @error('password') is-invalid @enderror"
+                                        name="password" required autocomplete="new-password" placeholder="********">
 
                                     @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message = 'Pogrešan unos!' }}</strong>
+                                        <span class="invalid-feedback fst-italic fw-bold" role="alert">
+                                            <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
@@ -64,7 +66,7 @@
 
                             <div class="row mb-3">
                                 <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Potvrdite Lozinku') }}</label>
+                                    class="fw-bold col-md-4 col-form-label text-md-end">{{ __('Potvrdite Lozinku') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
@@ -75,7 +77,7 @@
 
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="fw-bolder border-1 btn btn-primary">
                                         {{ __('Registracija') }}
                                     </button>
                                 </div>

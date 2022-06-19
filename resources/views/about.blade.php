@@ -1,46 +1,45 @@
-@extends('layouts.app')
+@extends('layouts.app_absolute_footer')
 
 @section('content')
     <section class="team section-bg">
-        <div class="container" data-aos="fade-up">
-
-            <div class="section-title">
-                <h2>Tim</h2>
-            </div>
-
-            <div class="row">
-
-                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                    <div class="member" data-aos="fade-up" data-aos-delay="300">
-                        <div class="member-img">
-                            <img src="storage/team/mihaela.jpeg" class="img-fluid" alt="Mihaela">
+        <div class="section-title">
+            <h2>Tim</h2>
+        </div>
+        <!-- Slike -->
+        <div class="container mb-2" data-aos="fade-up">
+            <div class="row mt-1">
+                <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center">
+                    <div class="member col-sm-6 col-md-5 col-xs-6 col-lg-3 jump d-flex me-3">
+                        <div class="member-img card m-2" style="height: 550px">
+                            <img class="d-block" src="storage/team/mihaela.jpeg" alt="dog1" class="card-img-top"
+                                style="height: 429px">
                             <div class="social">
                                 <a href="https://github.com/mmfsre/RWA" target="_blank"><i class="bi bi-github"></i></a>
                             </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>Mihaela Martić</h4>
-                            <span>Frontend</span>
+                            <div class="member-info p-4">
+                                <h5 class="card-title fw-bold">Mihaela Martić</h5>
+                                <p class="card-text">
+                                    Frontend
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                    <div class="member" data-aos="fade-up" data-aos-delay="400">
-                        <div class="member-img">
-                            <img src="storage/team/dario.jpeg" class="img-fluid" alt="Dario">
+                    <div class="member col-sm-6 col-md-5 col-xs-6 col-lg-3 jump d-flex ms-3">
+                        <div class="member-img card m-2" style="height: 550px">
+                            <img src="storage/team/dario.jpeg" alt="dog1" class="card-img-top" style="height: 429px">
                             <div class="social">
                                 <a href="https://github.com/mmfsre/RWA" target="_blank"><i class="bi bi-github"></i></a>
                             </div>
-                        </div>
-                        <div class="member-info">
-                            <h4>Dario Klarić</h4>
-                            <span>Backend</span>
+                            <div class="member-info p-4">
+                                <h5 class="card-title fw-bold">Dario Klarić</h5>
+                                <p class="card-text">
+                                    Backend
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 @endsection

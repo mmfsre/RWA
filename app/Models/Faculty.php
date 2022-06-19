@@ -13,7 +13,7 @@ class Faculty extends Model
 
     protected $primaryKey = 'id';
 
-    protected $guarded = [];
+    protected $fillable = ['name', 'address', 'description'];
 
     // Veza VIŠE-VIŠE  // Faculties -> Users
     public function users()

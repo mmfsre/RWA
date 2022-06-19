@@ -1,6 +1,3 @@
-{{-- <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"> --}}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,13 +45,17 @@
     <!-- Remix-Icon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
-    <!-- Swiper -> NISAM SIGURAN RADI LI -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.2.2/swiper-bundle.min.js"
+    <!-- Swiper -> (1) -->
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.2.2/swiper-bundle.min.js"
         integrity="sha512-EWat0/wkEZtE7OENhG700T+jmrpHStGS7CqHUAzKW5MzNnVEa9Wfb+zJjF4hoXSgMTWlixL5Fgqhjx5PAliaXw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.2.2/swiper-bundle.min.css"
         integrity="sha512-hhiS6muPW6W6KvaFQmuEL0KWnLpq01sQR/qns+GqBPVu9wBg7JG/touq/t0qhmzFTCbLAyFKtHyFnyentlqOOw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
+
+    <!-- Swiper -> CDN (2) -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
     <!-- PureCounter -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"
@@ -76,9 +77,8 @@
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
     </script>
 
-    <!-- Dodatne Ikone -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <!-- PureCounter -->
+    <script async src="dist/purecounter.js"></script>
 </head>
 
 <body>
@@ -93,7 +93,7 @@
         @yield('content')
     </main>
 
-    <footer id="footer" class="mx-auto">
+    <footer id="footer" class="footer-others">
         @include('layouts.footer')
     </footer>
 
@@ -350,18 +350,6 @@
             });
 
         })()
-    </script>
-    <script>
-        updateList = function() {
-            var input = document.getElementById('image');
-            var output = document.getElementById('fileList');
-
-            output.innerHTML = '<ul>';
-            for (var i = 0; i < input.files.length; ++i) {
-                output.innerHTML += '<li>' + input.files.item(i).name + '</li>';
-            }
-            output.innerHTML += '</ul>';
-        }
     </script>
 </body>
 

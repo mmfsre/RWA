@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_absolute_footer')
 
 @section('content')
     <section id="portfolio" class="portfolio">
@@ -38,7 +38,7 @@
                             lozinku:</label>
                         <div class="col-md-7">
                             <input type="password" name="password_confirmation" id="password_confirmation"
-                                class="form-control border-2 fs-6fst-italic @error('password_confirmation') is-invalid @enderror"
+                                class="form-control border-2 fs-6 fst-italic @error('password_confirmation') is-invalid @enderror"
                                 placeholder="********" />
                             @error('password_confirmation')
                                 <div class="invalid-feedback fst-italic fw-bold">

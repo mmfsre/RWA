@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_absolute_footer')
 
 @section('content')
     <section id="portfolio" class="portfolio">
@@ -8,20 +8,13 @@
                 <h2>Dodaj Novi Kolegij</h2>
             </div>
 
-            <!-- Izbacivanje POGREŠKE na vrhu -->
-            {{-- @if ($errors->any())
-                <div class="row">
-                    <div class="col-lg-12">
-                        @foreach ($errors->all() as $error)
-                            <li class="alert alert-danger fst-italic fw-bold text-center" type="none">
-                                {{ $error }}
-                            </li>
-                        @endforeach
-                    </div>
-                </div>
-            @endif --}}
-
             <div class="card-body">
+                <div class="col-lg-1 align-items-start justify-content-evenly mt-2 mb-2">
+                    <a href="/materials">
+                        <button class="btn btn-secondary fw-bold">&#8617; Nazad</button>
+                    </a>
+                </div>
+
                 <form action="/materials" class="form-control border-1" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row mb-3 py-2 px-2 mt-5">

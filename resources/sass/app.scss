@@ -1,18 +1,27 @@
-// Fonts
-// @import url('https://fonts.googleapis.com/css?family=Nunito');
 // Variables
 @import 'variables';
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+// Swiper
 @import 'swiper/css';
 @import 'swiper/css/navigation';
 @import 'swiper/css/pagination';
 
 /**     style1.css      **/
 
-// DA SAČUVA RAZMAKE
+// Da sačuva razmake
 #notices {
     white-space: pre-wrap;
+}
+
+// Dugme za NAZAD
+.btn-back {
+    background-color: #e03a3c;
+}
+
+// Obavijesti u Jumbotron-u
+.jumbo {
+    background-color: #2483bb;
 }
 
 body {
@@ -1243,7 +1252,7 @@ section {
     font-weight: 700;
     margin-bottom: 5px;
     font-size: 18px;
-    color: #111111;
+    color: palevioletred;
     background-color: whitesmoke;
 }
 
@@ -1398,6 +1407,24 @@ section {
     100% {
         transform: rotate(360deg);
     }
+}
+
+// Footer -> FIXED
+.footer-others {
+    height: 120px;
+    width: 100%;
+    position: fixed;
+    bottom: 0pt;
+    left: 0pt;
+}
+
+// Footer -> ABSOLUTE
+.footer-absolute {
+    height: 220px;
+    width: 100%;
+    position: scroll;
+    bottom: 0pt;
+    left: 0pt;
 }
 
 #footer {

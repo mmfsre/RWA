@@ -1,6 +1,9 @@
 require('./bootstrap');
 
-// #id01 #id02 - LOGIN/REGISTER forma (Mihaela) //
+import PureCounter from "@srexi/purecounterjs";
+const pure = new PureCounter();
+
+// #id01 #id02 - LOGIN/REGISTER forma početna (Mihaela) - Trenutno se ne koristi //
 
 var modal = document.getElementById('id01');
 window.onclick = function(event) {

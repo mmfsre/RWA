@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Role;
 use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Http\Requests\ChangePasswordRequest;
-use App\Models\Role;
+use App\Models\Direction;
+use App\Models\Material;
+use Illuminate\Support\Facades\Gate;
 
 class UsersController extends Controller
 {
@@ -18,19 +21,23 @@ class UsersController extends Controller
      */
     public function __construct()
     {
-
         $this->middleware('auth');
     }
 
     public function index()
     {
         $users = User::all();
-
         $counter = count($users);
-
         $i = 1;
+        $set = 'Admin';
 
-        return view('users.show_users', compact('users', 'counter', 'i'));
+        if (Gate::allows('is-super-admin')) {
+            return view('users.show_users', compact('users', 'counter', 'i'));
+        } else if (Gate::allows('is-admin')) {
+            return view('users.show_users', compact('users', 'counter', 'i', 'set'))->with('message', 'Oops! Nemate pristupa!');
+        } else {
+            return redirect()->back();
+        }
     }
 
     /**
@@ -41,6 +48,8 @@ class UsersController extends Controller
     public function create()
     {
         $roles = Role::get();
+
+        $this->authorize('create', User::class);
 
         return view('users.create_users', compact('roles'));
     }
@@ -54,11 +63,12 @@ class UsersController extends Controller
     public function store(UserCreateRequest $request)
     {
         $data = $request->validated();
-        $data['password'] = bcrypt($data['password']);
+
+        $data['password'] = $data['password'];
 
         User::create($data);
 
-        return redirect('/users');
+        return redirect('/users')->with('message', 'Uspješno kreiran korisnik!');
     }
 
     public function password_edit($id)
@@ -72,11 +82,13 @@ class UsersController extends Controller
     {
         $user = User::find($id);
 
-        $user->password = $request->password;
+        $this->authorize('update', $user);
+
+        $user->password = $request->password; // Ne treba bcrypt($request->password) --> U modelu User smo već enktriptirali lozinku (Hash)
 
         $user->save();
 
-        return redirect('/users');
+        return redirect('/users')->with('message', 'Lozinka promijenjena!');
     }
 
     /**
@@ -87,10 +99,10 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $users = User::all();
+        $user = User::find($id);
 
         return view('users.show_users', [
-            'users' => $users
+            'user' => $user,
         ]);
     }
 
@@ -103,9 +115,11 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
+        $roles = Role::get();
 
         return view('users.edit_users', [
-            'user' => $user
+            'user' => $user,
+            'roles' => $roles
         ]);
     }
 
@@ -121,11 +135,16 @@ class UsersController extends Controller
         $request->validated();
 
         $user = User::find($id);
+
+        $this->authorize('update', $user);
+
+        $user = User::find($id);
         $user->name = $request->name;
+        $user->role_id = $request->role_id;
         $user->email = $request->email;
         $user->save();
 
-        return redirect('/users');
+        return redirect('/users')->with('message', 'Uspješno ažurirani podaci o korisniku!');
     }
 
     /**
@@ -138,8 +157,10 @@ class UsersController extends Controller
     {
         $user = User::find($id);
 
+        $this->authorize('delete', $user);
+
         $user->delete();
 
-        return redirect('/users');
+        return redirect('/users')->with('message', 'Obrisan korisnik!');
     }
 }

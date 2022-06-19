@@ -25,6 +25,19 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        // Definiranje vlastitih vrata (Gate)
+
+        Gate::define('logged-in', function ($user) {
+            return $user;
+        });
+
+        Gate::define('is-admin', function ($user) {
+            return $user->hasAnyRole('Admin');
+            // return $user->hasAnyRole(['Admin', 'Moderator']); // Ako želimo da imaju iste role
+        });
+
+        Gate::define('is-super-admin', function ($user) {
+            return $user->hasAnyRole('Super Admin');
+        });
     }
 }

@@ -27,9 +27,11 @@ class MaterialsController extends Controller
     public function index()
     {
         $materials = Material::all();
+        $counter = count($materials);
 
         return view('posts.materials', [
-            'materials' => $materials
+            'materials' => $materials,
+            'counter' => $counter
         ]);
     }
 
@@ -40,6 +42,7 @@ class MaterialsController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Material::class);
         return view('posts.create');
     }
 
@@ -51,6 +54,8 @@ class MaterialsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Material::class);
+
         $request->validate([
             'name' => 'required|string|max:255',
             'lecturer' => 'required|string|max:255',
@@ -72,8 +77,7 @@ class MaterialsController extends Controller
             'description' => $request->input('description'),
         ]);
 
-
-        return redirect('/materials');
+        return redirect('/materials')->with('message', 'Uspješno kreiran novi kolegij!');
     }
 
     /**
@@ -85,8 +89,9 @@ class MaterialsController extends Controller
     public function show($id)
     {
         $material = Material::find($id);
+        $user = User::find($id); // Trebat će za ispis PREDSTAVNIKA
 
-        $user = User::find($id);
+        $this->authorize('view', $material);
 
         // return view('posts.show')->with('material', $material);
         return view('posts.show', [
@@ -104,6 +109,8 @@ class MaterialsController extends Controller
     public function edit($id)
     {
         $material = Material::find($id);
+
+        $this->authorize('update', $material);
 
         return view('posts.edit')->with('material', $material);
     }
@@ -124,6 +131,9 @@ class MaterialsController extends Controller
             'year' => 'required|integer'
         ]);
 
+        $material = Material::find($id);
+
+        $this->authorize('update', $material);
 
         Material::where('id', $id)
             ->update([
@@ -134,7 +144,31 @@ class MaterialsController extends Controller
                 'description' => $request->input('description')
             ]);
 
-        // Validacija slike - za UPDATE (NEPOTREBNO)
+        return redirect('/materials')->with('message', 'Uspješno ažurirano!');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $material = Material::find($id);
+
+        $this->authorize('delete', $material);
+
+        $material->delete();
+
+        return redirect('/materials')->with('message', 'Obrisano!');
+    }
+}
+
+/** DODATAK **/
+
+// U update() funckiji
+        // Validacija slike - za UPDATE (TRENUTNO NEPOTREBNO)
 
         // if ($request->hasFile('image_path')) {
 
@@ -149,22 +183,3 @@ class MaterialsController extends Controller
         //     $material->image_path = $filaname;
         // }
         // $material->update();
-
-        return redirect('/materials');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $material = Material::find($id);
-
-        $material->delete();
-
-        return redirect('/materials');
-    }
-}

@@ -13,7 +13,7 @@ class Permission extends Model
 
     protected $primaryKey = 'id';
 
-    protected $guarded = [];
+    protected $fillable = ['name'];
 
     // Veza VIŠE-VIŠE // Permissions -> Roles
     // Jedna rola (npr. Admin) može imati više permisija, tj. može -> view_items, manage_items, manage_users

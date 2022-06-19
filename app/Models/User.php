@@ -9,6 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Role;
+use Symfony\Component\Console\Input\Input;
 
 class User extends Authenticatable
 {
@@ -23,6 +25,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id',
     ];
 
     /**
@@ -67,6 +70,12 @@ class User extends Authenticatable
         return $this->belongsToMany(Direction::class);
     }
 
+    // Veza 1-1 (inverzno) // Users -> Directions // Za predstavnika svakog smjera
+    public function direction()
+    {
+        return $this->belongsTo(Direction::class);
+    }
+
     // Veza VIŠE-1 (inverzno) // Users -> Roles
     // Korisnicima dodjeljujemo točno određenu rolu - SuperAdmin, Admin, User
     public function role()
@@ -74,24 +83,24 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
-    // OBRISATI KASNIJE
-    // /**
-    //  * Check if the user has a role
-    //  * @param string $role
-    //  * @return bool
-    //  */
-    // public function hasAnyRole(string $role)
+    // Permisije
+    public function hasPermission($name)
+    {
+        return $this->role->permissions()->where('name', $name)->exists();
+    }
+
+    // Možemo dodati string jer nam to i funckija vraća da bi lakše razumjeli što radi...
+    public function hasAnyRole(string $role)
+    {
+        // Ako smo našli korisnika s odgovarajućom rolom, vratit će True, ako ne onda NULL (Koristimo "!==")
+        return null !== $this->role()->where('name', $role)->first();
+    }
+
+    // Da sam napravio bazu tako da jedan korisnik može imati više uloga, tj. niz, onda bi ovdje dodao isto samo sa "whereIn"
+    // Možemo dodati array jer nam to i funckija vraća da bi lakše razumjeli što radi...
+    // public function hasAnyRole(array $role)
     // {
-    //     return null !== $this->role()->where('name', $role)->first();
+    //     return null !== $this->role()->whereIn('name', $role)->first();
     // }
 
-    // /**
-    //  * Check the user any given role
-    //  * @param array $role
-    //  * @return bool
-    //  */
-    // public function hasAnyRoles(array $role)
-    // {
-    //     return null !== $this->role()->whereIn('name', $role)->first(); // wherIn()--> ukazuje na niz naziva "name"
-    // }
 }

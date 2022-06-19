@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.app_absolute_footer')
 
 @section('content')
     <section id="portfolio" class="portfolio">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
-                <h2>Dodaj Korisnika</h2>
+                <h2>Dodaj Novog Korisnika</h2>
             </div>
 
             <div class="card-body">
@@ -44,7 +44,27 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="row mb-2 py-2 px-2">
+
+                    <div class="row py-2 px-2">
+                        <label class="col-md-3 col-form-label text-md-end fw-bold" for="role_id_select">Tip
+                            Korisnika:</label>
+                        <div class="col-md-7">
+                            <select name="role_id" aria-label="role_id_select"
+                                class="form-control border-2 fst-italic form-select @error('role_id') is-invalid @enderror">
+                                <option class="fst-italic" selected>Odaberite</option>
+                                @foreach ($roles as $role)
+                                    <option class="fst-normal" value="{{ $role->id }}">{{ $role->name }}</option>
+                                @endforeach
+                            </select>
+                            @error('role_id')
+                                <div class="invalid-feedback fst-italic fw-bold">
+                                    {{ $message = 'The role id field is required.' }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="row py-2 px-2">
                         <label class="col-md-3 col-form-label text-md-end fw-bold" for="password">Lozinka:</label>
                         <div class="col-md-7">
                             <input type="password" name="password" id="password"

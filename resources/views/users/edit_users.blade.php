@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_absolute_footer')
 
 @section('content')
     <section id="portfolio" class="portfolio">
@@ -32,7 +32,7 @@
                         </div>
                     </div>
 
-                    <div class="row mb-5 py-2 px-2">
+                    <div class="row mb-3 py-2 px-2">
                         <label class="col-md-3 col-form-label text-md-end fw-bold" for="email">E-mail:</label>
                         <div class="col-md-7">
                             <input type="email" name="email" id="email"
@@ -43,6 +43,29 @@
                                     {{ $message }}
                                 </div>
                             @enderror
+                        </div>
+                    </div>
+
+                    <div class="row mb-5 py-2 px-2">
+                        <label class="col-md-3 col-form-label text-md-end fw-bold" for="role_id">Tip Korisnika:</label>
+                        <div class="col-md-7">
+                            <select name="role_id" id="role_id" aria-label="role_id"
+                                class="form-control border-2 fst-italic form-select @error('role_id') is-invalid @enderror">
+                                @if ($user->role_id == null)
+                                    <option class="fst-italic" selected>Odaberite</option>
+                                @endif
+                                @foreach ($roles as $role)
+                                    <option class="fst-normal" value="{{ $role->id }}"
+                                        {{ $role->id == $user->role_id ? 'selected' : '' }}>
+                                        {{ $role->name }}
+                                    </option>
+                                @endforeach
+                                @error('role_id')
+                                    <div class="invalid-feedback fst-italic fw-bold">
+                                        {{ $message = 'The role id field is required.' }}
+                                    </div>
+                                @enderror
+                            </select>
                         </div>
                     </div>
 

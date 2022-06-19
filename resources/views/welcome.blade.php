@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_absolute_footer')
 
 @section('content')
     {{-- Početna stranica - slika --}}
@@ -25,9 +25,10 @@
                             <h3>Svi materijali na jednom mjestu</h3>
                             <a href="https://drive.google.com/file/d/1wTPE4yHXzlRNRn48xNcxvCoTLvxfVhJa/view" target="_blank"
                                 class="about-btn"><span>Vizija</span> <i class="bx bx-chevron-right"></i></a><br><br>
-                            <a href="{{ url('storage/usecase.jpeg') }}" target="_blank" class="about-btn"><span>Use
-                                    case
-                                    diagram</span> <i class="bx bx-chevron-right"></i></a>
+                            <a href="{{ url('storage/usecase.jpeg') }}" target="_blank" class="about-btn">
+                                <span>Use case diagram</span>
+                                <i class="bx bx-chevron-right"></i>
+                            </a>
                         </div>
                     </div>
                     <div class="col-xl-7 d-flex align-items-stretch">

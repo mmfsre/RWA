@@ -10271,7 +10271,7 @@ textarea.form-control-lg {
   }
 }
 /**
- * Swiper 8.2.2
+ * Swiper 8.2.4
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -10279,7 +10279,7 @@ textarea.form-control-lg {
  *
  * Released under the MIT License
  *
- * Released on: June 1, 2022
+ * Released on: June 13, 2022
  */
 @font-face {
   font-family: swiper-icons;
@@ -10682,6 +10682,14 @@ button.swiper-pagination-bullet {
 /**     style1.css      **/
 #notices {
   white-space: pre-wrap;
+}
+
+.btn-back {
+  background-color: #e03a3c;
+}
+
+.jumbo {
+  background-color: #2483bb;
 }
 
 body {
@@ -11907,7 +11915,7 @@ section {
   font-weight: 700;
   margin-bottom: 5px;
   font-size: 18px;
-  color: #111111;
+  color: palevioletred;
   background-color: whitesmoke;
 }
 
@@ -12062,6 +12070,22 @@ section {
     transform: rotate(360deg);
   }
 }
+.footer-others {
+  height: 120px;
+  width: 100%;
+  position: fixed;
+  bottom: 0pt;
+  left: 0pt;
+}
+
+.footer-absolute {
+  height: 220px;
+  width: 100%;
+  position: scroll;
+  bottom: 0pt;
+  left: 0pt;
+}
+
 #footer {
   color: #fff;
   font-size: 14px;

@@ -13,7 +13,7 @@ class Material extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['name', 'lecturer', 'drive_link', 'image_path', 'year', 'description'];
+    protected $fillable = ['name', 'lecturer', 'drive_link', 'image_path', 'year', 'description', 'direction_id'];
 
     // protected $hidden = ['updated_at']; // ONO ŠTO NE ŽELIMO PRIKAZATI
 

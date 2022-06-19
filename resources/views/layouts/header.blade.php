@@ -8,7 +8,9 @@
             <li><a class="{{ request()->is('about') ? 'active' : '' }}" href="/about">O nama</a></li>
             <li><a class="{{ request()->is('materials') ? 'active' : '' }}" href="/materials">Materijali</a></li>
             <li><a class="{{ request()->is('contact') ? 'active' : '' }}" href="/contact">Kontakt</a></li>
-            <li><a class="{{ request()->is('users') ? 'active' : '' }}" href="/users">Korisnici</a></li>
+            @if (Gate::check('is-super-admin') || Gate::check('is-admin'))
+                <li><a class="{{ request()->is('users') ? 'active' : '' }}" href="/users">Korisnici</a></li>
+            @endif
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>
@@ -29,8 +31,8 @@
             @endif
         @else
             <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false" v-pre>
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ Auth::user()->name }}
                 </a>
 

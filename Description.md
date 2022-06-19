@@ -1,4 +1,4 @@
-# Projekt Student Share
+# Projekt - Student Share
 
 Projekt sa ciljem lakšeg prikupljanja materijala vezanih uz sam studij.
 

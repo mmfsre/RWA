@@ -1,4 +1,5 @@
-Projekt Student Share
+#Projekt Student Share
+
 Projekt sa ciljem lakšeg prikupljanja materijala vezanih uz sam studij.
 
 Link web-stranice: http://rwa032022.studenti.sumit.sum.ba/

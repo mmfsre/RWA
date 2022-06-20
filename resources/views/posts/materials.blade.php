@@ -78,8 +78,8 @@
                                 <img src="{{ asset('images/' . $material->image_path) }}" class="img-fluid"
                                     alt="">
                                 <div class="portfolio-info">
-                                    <!-- GUMB ZA UREĐIVANJE -->
                                     <div class="btn-toolbar" aria-label="buttons">
+                                        <!-- GUMB ZA UREĐIVANJE -->
                                         @can('update', $material)
                                             <a class="text-center" href="materials/{{ $material->id }}/edit">
                                                 <button class="btn btn-sm btn-outline-light">UREDI</button>

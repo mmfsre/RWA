@@ -69,7 +69,7 @@
                                     class="fw-bold col-md-4 col-form-label text-md-end">{{ __('Potvrdite Lozinku') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control"
+                                    <input id="password-confirm" type="password" class="fst-italic form-control"
                                         name="password_confirmation" required autocomplete="new-password"
                                         placeholder="********">
                                 </div>

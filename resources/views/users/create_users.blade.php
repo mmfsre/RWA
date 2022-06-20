@@ -11,7 +11,7 @@
             <div class="card-body">
                 <div class="col-lg-1 align-items-start justify-content-evenly mt-2 mb-2">
                     <a href="/users">
-                        <button class="btn btn-back fw-bold">&#8617; Nazad</button>
+                        <button class="btn btn-danger fw-bold">&#8617; Nazad</button>
                     </a>
                 </div>
 
@@ -83,7 +83,7 @@
                             lozinku:</label>
                         <div class="col-md-7">
                             <input type="password" name="password_confirmation" id="password_confirmation"
-                                class="form-control border-2 fs-6fst-italic @error('password_confirmation') is-invalid @enderror"
+                                class="form-control border-2 fs-6 fst-italic @error('password_confirmation') is-invalid @enderror"
                                 placeholder="********" />
                             @error('password_confirmation')
                                 <div class="invalid-feedback fst-italic fw-bold">

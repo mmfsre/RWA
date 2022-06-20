@@ -17,7 +17,7 @@
                                 <a href="https://github.com/mmfsre/RWA" target="_blank"><i class="bi bi-github"></i></a>
                             </div>
                             <div class="member-info p-4">
-                                <h5 class="card-title fw-bold">Mihaela Martić</h5>
+                                <h5 class="card-title fw-bold" style="color: hsl(0, 0%, 28%)">Mihaela Martić</h5>
                                 <p class="card-text">
                                     Frontend
                                 </p>
@@ -31,7 +31,7 @@
                                 <a href="https://github.com/mmfsre/RWA" target="_blank"><i class="bi bi-github"></i></a>
                             </div>
                             <div class="member-info p-4">
-                                <h5 class="card-title fw-bold">Dario Klarić</h5>
+                                <h5 class="card-title fw-bold" style="color: hsl(0, 0%, 28%)">Dario Klarić</h5>
                                 <p class="card-text">
                                     Backend
                                 </p>

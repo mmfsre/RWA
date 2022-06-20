@@ -11,7 +11,7 @@
             <div class="card-body">
                 <div class="col-lg-1 align-items-start justify-content-evenly mt-2 mb-2">
                     <a href="/materials">
-                        <button class="btn btn-back fw-bold">&#8617; Nazad</button>
+                        <button class="btn btn-danger fw-bold">&#8617; Nazad</button>
                     </a>
                 </div>
 
@@ -104,7 +104,7 @@
 
                     <div class="col-md-7 offset-md-3">
                         <button type="submit"
-                            class="form-control fs-6 border-1 fw-bold btn-success mt-4 mb-5">POTVRDI</button>
+                            class="form-control fs-6 border-1 fw-bold btn-primary mt-4 mb-5">POTVRDI</button>
                     </div>
                 </form>
             </div>

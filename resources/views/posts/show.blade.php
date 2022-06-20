@@ -10,7 +10,7 @@
 
             <div class="col-lg-1 align-items-start justify-content-evenly mt-2 mb-2">
                 <a href="/materials">
-                    <button class="btn btn-back fw-bold">&#8617; Nazad</button>
+                    <button class="btn btn-danger fw-bold">&#8617; Nazad</button>
                 </a>
             </div>
 
@@ -19,17 +19,21 @@
                     <div class="portfolio-wrap">
                         <img src="{{ asset('images/' . $material->image_path) }}" class="img-fluid" alt="">
                         <div class="portfolio-info">
-                            <!-- GUMB ZA UREĐIVANJE -->
                             <div class="btn-toolbar" aria-label="buttons">
-                                <a class="text-center" href="{{ $material->id }}/edit">
-                                    <button class="btn btn-sm btn-outline-light">UREDI</button>
-                                </a>
+                                <!-- GUMB ZA UREĐIVANJE -->
+                                @can('update', $material)
+                                    <a class="text-center" href="{{ $material->id }}/edit">
+                                        <button class="btn btn-sm btn-outline-light">UREDI</button>
+                                    </a>
+                                @endcan
                                 <!-- GUMB ZA BRISANJE -->
-                                <form class="ms-2 text-center" action="/materials/{{ $material->id }}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button typle="submit" class="btn btn-sm btn-outline-light">OBRIŠI</button>
-                                </form>
+                                @can('delete', $material)
+                                    <form class="ms-2 text-center" action="/materials/{{ $material->id }}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button typle="submit" class="btn btn-sm btn-outline-light">OBRIŠI</button>
+                                    </form>
+                                @endcan
                             </div>
                             <h4>{{ $material->name }}</h4>
                             <p>{{ $material->lecturer }}</p>

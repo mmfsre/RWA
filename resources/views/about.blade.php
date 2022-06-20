@@ -11,7 +11,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center">
                     <div class="member col-sm-6 col-md-5 col-xs-6 col-lg-3 jump d-flex me-3">
                         <div class="member-img card m-2" style="height: 550px">
-                            <img class="d-block" src="storage/team/mihaela.jpeg" alt="dog1" class="card-img-top"
+                            <img class="d-block" src="storage1/team/mihaela.jpeg" alt="dog1" class="card-img-top"
                                 style="height: 429px">
                             <div class="social">
                                 <a href="https://github.com/mmfsre/RWA" target="_blank"><i class="bi bi-github"></i></a>
@@ -26,7 +26,7 @@
                     </div>
                     <div class="member col-sm-6 col-md-5 col-xs-6 col-lg-3 jump d-flex ms-3">
                         <div class="member-img card m-2" style="height: 550px">
-                            <img src="storage/team/dario.jpeg" alt="dog1" class="card-img-top" style="height: 429px">
+                            <img src="storage1/team/dario.jpeg" alt="dog1" class="card-img-top" style="height: 429px">
                             <div class="social">
                                 <a href="https://github.com/mmfsre/RWA" target="_blank"><i class="bi bi-github"></i></a>
                             </div>

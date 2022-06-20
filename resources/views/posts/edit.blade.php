@@ -11,7 +11,7 @@
             <div class="card-body">
                 <div class="col-lg-1 align-items-start justify-content-evenly mt-2 mb-2">
                     <a href="/materials">
-                        <button class="btn btn-secondary fw-bold">&#8617; Nazad</button>
+                        <button class="btn btn-back fw-bold">&#8617; Nazad</button>
                     </a>
                 </div>
 

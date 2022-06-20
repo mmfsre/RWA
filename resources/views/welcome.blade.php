@@ -25,7 +25,7 @@
                             <h3>Svi materijali na jednom mjestu</h3>
                             <a href="https://drive.google.com/file/d/1wTPE4yHXzlRNRn48xNcxvCoTLvxfVhJa/view" target="_blank"
                                 class="about-btn"><span>Vizija</span> <i class="bx bx-chevron-right"></i></a><br><br>
-                            <a href="{{ url('storage/usecase.jpeg') }}" target="_blank" class="about-btn">
+                            <a href="{{ url('storage1/usecase.jpeg') }}" target="_blank" class="about-btn">
                                 <span>Use case diagram</span>
                                 <i class="bx bx-chevron-right"></i>
                             </a>

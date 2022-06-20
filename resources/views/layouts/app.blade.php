@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta content="" name="description">
     <meta content="" name="keywords">
+    <link rel="icon" type="image/x-icon" href="{{ asset('icons/favicon.ico') }}">
     <title>{{ config('app.name', 'Student Share') }}</title>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

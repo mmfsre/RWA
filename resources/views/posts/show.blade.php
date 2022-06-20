@@ -61,7 +61,7 @@
                         </div>
                     @endif
                 @else
-                    <div class="row text-start mt-4 p-3 bg-secondary text-white rounded">
+                    <div class="row text-start mt-4 p-3 jumbo text-white rounded">
                         <p class="fst-italic" id="notices">(Nema Obavijesti)</p>
                     </div>
                 @endif

@@ -14,8 +14,8 @@ class CreateUserDirectionTable extends Migration
     public function up()
     {
         Schema::create('user_direction', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->integer('direction_id')->unsigned()->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('direction_id')->nullable();
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')

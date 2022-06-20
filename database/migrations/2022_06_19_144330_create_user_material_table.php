@@ -14,8 +14,8 @@ class CreateUserMaterialTable extends Migration
     public function up()
     {
         Schema::create('user_material', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->integer('material_id')->unsigned()->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('material_id')->nullable();
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')

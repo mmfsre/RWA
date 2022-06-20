@@ -14,14 +14,19 @@ class CreateDirectionsTable extends Migration
     public function up()
     {
         Schema::create('directions', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id('id');
             $table->string('name');
             $table->string('school_year');
-            $table->integer('faculty_id')->unsigned()->nullable();
+            $table->unsignedBigInteger('faculty_id')->nullable();
+            $table->unsignedBigInteger('representative_id')->nullable();
             $table->timestamps();
             $table->foreign('faculty_id')
                 ->references('id')
                 ->on('faculties')
+                ->onDelete('cascade');
+            $table->foreign('representative_id')
+                ->references('id')
+                ->on('users')
                 ->onDelete('cascade');
         });
     }

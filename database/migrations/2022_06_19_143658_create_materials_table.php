@@ -14,14 +14,14 @@ class CreateMaterialsTable extends Migration
     public function up()
     {
         Schema::create('materials', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id('id');
             $table->string('name');
             $table->string('lecturer');     // Nositelj kolegija
             $table->string('drive_link');
             $table->string('image_path');
             $table->integer('year');
             $table->longText('description')->nullable();
-            $table->integer('direction_id')->unsigned()->nullable();
+            $table->unsignedBigInteger('direction_id')->nullable();
             $table->timestamps();
             $table->foreign('direction_id')
                 ->references('id')
